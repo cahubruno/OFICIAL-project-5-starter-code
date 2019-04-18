@@ -1,25 +1,128 @@
 # Project 5 - Decentralized Star Notary
 
-## Steps to follow
+============================================================================
+#####                       Contract Attributes
+============================================================================
 
-1. Clone the repository to your local computer.
-2. Open the terminal and install the packages on main Folder of project: `npm install`
-3. On terminal, install the packages on main SubFolder 'app' of project: `npm install`
-4. Install truffle:
-  On terminal, execute: `npm install --save truffle-hdwallet-provider`
-5. Install OpenZeppelin:
-  On terminal, execute: `npm install --save openzeppelin-solidity`
-6. For starting the development console, run: `truffle develop`
-7. For compiling the contract, inside the development console, run: `compile`
-8. For migrating the contract to the locally running Ethereum network, inside the development console, run: `migrate --reset`
-9. For running unit tests the contract, inside the development console, run:`test`
-10. Step 6 activated smart contract on the local network.
-11. Now, for running the Front End of the DAPP, open another terminal window and go inside the project directory, and run:
-`cd app`
-`npm run dev`
-The Front End will be activated on: http://localhost:8080/
-12. configure the metamask to local network on address: http://127.0.0.1:9545
-13. In step 3 several accounts were shown. Capture the private key of each and add in metamask
-14. Now you can enter the address http://localhost:8080/ to enter a star supplied with the name, symbol and id.
-15. For each transaction, the metamask will request approval.
-16. Button "Create Star" cresates a star in the smart contract
+  ===================
+  Default functions:
+  ===================
+
+    - `function createStar(string memory _name, uint256 _tokenId) public { ... }`
+
+        Description: Create Star using the Struct
+
+        struct Star {
+            string name;
+        }
+
+    - `function putStarUpForSale(uint256 _tokenId, uint256 _price) public { ... }`
+
+        Description: Putting an Star for sale (Adding the star tokenid into the mapping starsForSale, first verify that the sender is the owner)
+
+    - `function _make_payable(address x) internal pure returns (address payable) { ... }`
+
+        Description: Function that allows you to convert an address into a payable address
+
+    - `function buyStar(uint256 _tokenId) public  payable { ... }`
+
+        Description: Buy a star using Star tokenID
+
+  ======================================================
+  functions implemented by me - Task 1 for Project 5 ():
+  ======================================================
+
+    - `function lookUptokenIdToStarInfo (uint _tokenId) public view returns (string memory) { ... }`
+
+        Description: Looks up the stars using the Token ID, and then returns the name of the star.
+
+
+    - `function exchangeStars(uint256 _tokenId1, uint256 _tokenId2) public { ... }`
+
+        Description: 2 users can exchange their star tokens. Do not worry about the price, just write code to exchange stars between users.
+
+
+    - ` function transferStar(address _to1, uint256 _tokenId) public { ... } `
+
+        Description: The function should transfer a star from the address of the caller. The function should accept 2 arguments, the address to transfer the star to, and the token ID of the star.
+
+  ======================
+  Token name and Symbol
+  ======================
+
+  - Token name: `UdacityTokenProject5`
+  - Symbol: `UT5`
+
+============================================================================
+#####   Version of the Truffle, OpenZeppelin used and others
+============================================================================
+
+1) ERC-721 Token Name: `UdacityTokenProject5`
+2) ERC-721 Token Symbol: `UT5`
+
+Version of frameworks used
+
+`Truffle v5.0.12 (core: 5.0.12)`
+`openzeppelin-solidity@2.2.0`
+`Node v10.7.0`
+`Solidity v0.5.0 (solc-js)``
+`webpack 4.28.14`
+
+============================================================================
+#####                       Deploy contract to LOCAL network
+============================================================================
+
+1. Clone the repository to your local computer and open a terminal window
+2. Install:
+    Truffle: `npm -g install truffle`
+    Truffle HDWallet Provider: `npm install --save truffle-hdwallet-provider`
+    Openzeppelin: `npm install --save openzeppelin-solidity`
+3. Run truffle develop on project local folder: `truffle develop`
+  Truffle will be inicialized on address: `http://127.0.0.1:9545/`
+4. Compile the contract: `compile`
+5. Migrate the contract to local Ethereum network: `migrate --reset`
+6. Run all configured Tests on `TestStarNotary.js`
+
+    All configured tests:
+
+    `can Create a Star`
+    `lets user1 put up their star for sale`
+    `lets user1 get the funds after the sale`
+    `lets user2 buy a star, if it is put up for sale`
+    `lets user2 buy a star and decreases its balance in ether`
+    `can add the star name and star symbol properly`
+    `lets 2 users exchange stars`
+    `lets a user transfer a star`
+
+7. Open another terminal window to execute Front-end
+8. Run: `cd app`
+9. Run: `npm run dev`
+  Front-end will be inicialized on address: `http://localhost:8080/`
+10. Verify if you have Metamask extension Chrome installed and configured on local network http://127.0.0.1:9545/ where  truffle is running.
+11. Now you can test front-end functions on address: http://localhost:8080/
+
+============================================================================
+#####                       Deploy contract to RINKEBY network
+============================================================================
+
+1. Open terminal window in local project repository and run:
+  `truffle migrate --reset --network rinkeby`
+2. Configure the metamask on Rinkeby account
+3. Open another terminar window and run Front-End:
+  `cd app`
+  `npm run dev`
+4. Now you can access in http://localhost:8080/
+
+You can see the Token Created on:  
+  https://rinkeby.etherscan.io/token/0x8f888d8f66BE24e166D70c740B05937D3998A368
+
+============================================================================
+#####                       Front-end Functions
+============================================================================
+
+`CreateS Star`
+  Description: Enter the name of the star and the ID and click on the button "Create star"
+  * You have to confirme the transaction in Metamask after button click
+
+`Look up a Star`
+  Descriptioin: retrieves star information by providing your ID

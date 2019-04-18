@@ -34,29 +34,39 @@ const App = {
   createStar: async function() {
     const { createStar } = this.meta.methods;
     const name = document.getElementById("starName").value;
-    const symbol = document.getElementById("starSymbol").value;
     const id = document.getElementById("starId").value;
-    await createStar(name, symbol, id).send({from: this.account});
+    await createStar(name, id).send({from: this.account});
     App.setStatus("New Star Owner is " + this.account + ".");
   },
 
   // Implement Task 4 Modify the front end of the DAPP
   lookUp: async function (){
-    let id = document.getElementById("starId").value;
+    let { lookUptokenIdToStarInfo } = this.meta.methods;
+    let { symbol } = this.meta.methods;
+    let { name } = this.meta.methods;
+
+    let id = document.getElementById("lookid").value;
     id = parseInt(id);
     let starName = await lookUptokenIdToStarInfo(id).call();
     let contract = await name().call();
     let sym = await symbol().call();
     if (starName.length == 0){
-      App.setStatus("Star not own.","status");
-      App.setStatus("Star ID: ","starData");
-      App.setStatus("Token Name: ","contract");
-      App.setStatus("Token Symbol: ","symbol");
+      App.setStatus(
+            "Star NOT owner - status" + "<br><br>" +
+            "Star ID: " + id + "<br>" +
+            "Token Name (Contract): "+ contract + "<br>" +
+            "Token Symbol: " + sym);
     }else{
-      App.setStatus("Star own.","status");
-        App.setStatus("Star ID: "+id+" is named "+starName,"starData");
-        App.setStatus("Token Name: "+contract,"contract");
-        App.setStatus("Token Symbol: "+sym,"symbol");
+      console.log(id);
+      console.log(starName);
+      console.log(contract);
+      console.log(sym);
+      App.setStatus(
+            "Star owner - status" + "<br><br>" +
+            "Star ID: " + id + "<br>" +
+            "Star Name: " + starName + "<br>" +
+            "Token Name (Contract): "+ contract + "<br>" +
+            "Token Symbol: " + sym);
     }
   },
 };
