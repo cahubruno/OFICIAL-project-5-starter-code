@@ -117,8 +117,8 @@ Run Test 3: `test test\TestStarNotary2.js`
 truffle(develop)> test test\TestStarNotary.js
 Using network 'develop'.
 
-Compiling your contracts...
-===========================
+compiling your contracts...
+
 > Everything is up to date, there is nothing to compile.
 
   √ can Create a Star (176ms)
@@ -131,8 +131,8 @@ Compiling your contracts...
 truffle(develop)> test test\TestStarNotary1.js
 Using network 'develop'.
 
-Compiling your contracts...
-===========================
+compiling your contracts...
+
 > Everything is up to date, there is nothing to compile.
 
   √ lets user2 buy a star and decreases its balance in ether (407ms)
@@ -143,8 +143,8 @@ Compiling your contracts...
 truffle(develop)> test test\TestStarNotary2.js
 Using network 'develop'.
 
-Compiling your contracts...
-===========================
+compiling your contracts...
+
 > Everything is up to date, there is nothing to compile.
 
   √ can add the star name and star symbol properly (217ms)
