@@ -117,7 +117,6 @@ Run Test 3: `test test\TestStarNotary2.js`
 truffle(develop)> test test\TestStarNotary.js
 Using network 'develop'.
 
-
 Compiling your contracts...
 ===========================
 > Everything is up to date, there is nothing to compile.
@@ -132,7 +131,6 @@ Compiling your contracts...
 truffle(develop)> test test\TestStarNotary1.js
 Using network 'develop'.
 
-
 Compiling your contracts...
 ===========================
 > Everything is up to date, there is nothing to compile.
@@ -144,7 +142,6 @@ Compiling your contracts...
 
 truffle(develop)> test test\TestStarNotary2.js
 Using network 'develop'.
-
 
 Compiling your contracts...
 ===========================
