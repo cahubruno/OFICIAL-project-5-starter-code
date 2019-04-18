@@ -74,7 +74,9 @@ Version of frameworks used
   Truffle will be inicialized on address: `http://127.0.0.1:9545/`
 4. Compile the contract: `compile`
 5. Migrate the contract to local Ethereum network: `migrate --reset`
-6. Run all configured Tests on `TestStarNotary.js`
+6. Run all configured Tests on "TestStarNotary.js": `test`
+
+  * Check "ATTENTION TO THE TESTS" session for more details
 
     All configured tests:
 
@@ -87,6 +89,7 @@ Version of frameworks used
     `lets 2 users exchange stars`
     `lets a user transfer a star`
 
+
 7. Open another terminal window to execute Front-end
 8. Run: `cd app`
 9. Run: `npm run dev`
@@ -94,6 +97,66 @@ Version of frameworks used
 10. Verify if you have Metamask extension Chrome installed and configured on local network http://127.0.0.1:9545/ where  truffle is running.
 11. Now you can test front-end functions on address: http://localhost:8080/
 
+# ATTENTION TO THE TESTS
+
+I was unable to run all the tests at one time being failed on some with the error "Error: Returned error: VM Exception while processing transaction: revert" but all are working.
+
+Faced with this situation, I found a contour solution that was to separate the tests to be run separately.
+
+Then we must perform the 3 test functions one after the other. Once I find the root of the problem to run all the tests at once, I'll update the code.
+
+Here's the code to run the 3 separate test functions:
+
+Run Test 1: `test test\TestStarNotary.js`
+Run Test 2: `test test\TestStarNotary1.js`
+Run Test 3: `test test\TestStarNotary2.js`
+
+* Here's the proof that all the tests are working:
+
+...
+truffle(develop)> test test\TestStarNotary.js
+Using network 'develop'.
+
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+  √ can Create a Star (176ms)
+  √ lets user1 put up their star for sale (249ms)
+  √ lets user1 get the funds after the sale (338ms)
+  √ lets user2 buy a star, if it is put up for sale (400ms)
+
+  4 passing (1s)
+
+truffle(develop)> test test\TestStarNotary1.js
+Using network 'develop'.
+
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+  √ lets user2 buy a star and decreases its balance in ether (407ms)
+  √ lets 2 users exchange stars (444ms)
+
+  2 passing (877ms)
+
+truffle(develop)> test test\TestStarNotary2.js
+Using network 'develop'.
+
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+  √ can add the star name and star symbol properly (217ms)
+  √ lets a user transfer a star (482ms)
+
+  2 passing (729ms)
+
+truffle(develop)>
+...
 
 #                       Deploy contract to RINKEBY network
 
