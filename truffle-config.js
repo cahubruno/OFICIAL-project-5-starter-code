@@ -56,7 +56,7 @@ module.exports = {
     rinkeby: {
     provider: function() {
         //return new HDWalletProvider("< METAMASK SEED>","<rinkeby contract address>")
-        return new HDWallet("merit element library know matter divert wise pioneer peanut route comic wealth", `https://rinkeby.infura.io/v3/c878885d3013453cb3a84d92f7769ca7`)
+        return new HDWallet("< METAMASK SEED>", `https://rinkeby.infura.io/v3/c878885d3013453cb3a84d92f7769ca7`)
       },
       network_id: '4',
       gas: 4500000,

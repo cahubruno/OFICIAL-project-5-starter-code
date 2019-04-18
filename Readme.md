@@ -1,12 +1,8 @@
 # Project 5 - Decentralized Star Notary
 
-============================================================================
 #                       Contract Attributes
-============================================================================
 
-===================
 #  Default functions:
-===================
 
     - `function createStar(string memory _name, uint256 _tokenId) public { ... }`
 
@@ -28,9 +24,7 @@
 
         Description: Buy a star using Star tokenID
 
-======================================================
 #  functions implemented by me - Task 1 for Project 5 ():
-======================================================
 
     - `function lookUptokenIdToStarInfo (uint _tokenId) public view returns (string memory) { ... }`
 
@@ -46,16 +40,16 @@
 
         Description: The function should transfer a star from the address of the caller. The function should accept 2 arguments, the address to transfer the star to, and the token ID of the star.
 
-======================
+
 #  Token name and Symbol
-======================
+
 
   - Token name: `UdacityTokenProject5`
   - Symbol: `UT5`
 
-============================================================================
+
 #   Version of the Truffle, OpenZeppelin used and others
-============================================================================
+
 
 1) ERC-721 Token Name: `UdacityTokenProject5`
 2) ERC-721 Token Symbol: `UT5`
@@ -65,12 +59,11 @@ Version of frameworks used
 `Truffle v5.0.12 (core: 5.0.12)`
 `openzeppelin-solidity@2.2.0`
 `Node v10.7.0`
-`Solidity v0.5.0 (solc-js)``
+`Solidity v0.5.0 (solc-js)`
 `webpack 4.28.14`
 
-============================================================================
+
 #                       Deploy contract to LOCAL network
-============================================================================
 
 1. Clone the repository to your local computer and open a terminal window
 2. Install:
@@ -101,9 +94,8 @@ Version of frameworks used
 10. Verify if you have Metamask extension Chrome installed and configured on local network http://127.0.0.1:9545/ where  truffle is running.
 11. Now you can test front-end functions on address: http://localhost:8080/
 
-============================================================================
+
 #                       Deploy contract to RINKEBY network
-============================================================================
 
 1. Open terminal window in local project repository and run:
   `truffle migrate --reset --network rinkeby`
@@ -116,9 +108,8 @@ Version of frameworks used
 You can see the Token Created on:  
   https://rinkeby.etherscan.io/token/0x8f888d8f66BE24e166D70c740B05937D3998A368
 
-============================================================================
-#####                       Front-end Functions
-============================================================================
+
+#                       Front-end Functions
 
 `CreateS Star`
   Description: Enter the name of the star and the ID and click on the button "Create star"
