@@ -91,7 +91,9 @@ Version of frameworks used
 
 
 7. Open another terminal window to execute Front-end
-8. Run: `cd app`
+8. Open local repository of project
+8. Run: `cd app`.
+  * Before the first run, be sure to install the dependencies. Run: `npm install`
 9. Run: `npm run dev`
   Front-end will be inicialized on address: `http://localhost:8080/`
 10. Verify if you have Metamask extension Chrome installed and configured on local network http://127.0.0.1:9545/ where  truffle is running.
